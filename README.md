@@ -4,16 +4,8 @@ Premier projet du portfolio agentic AI : un agent minimal codé à la main, sans
 
 ## Architecture
 
-\`\`\`mermaid
-flowchart TD
-    A[Utilisateur] --> B[agent_boucle]
-    B --> C[API Claude]
-    C -->|stop_reason: tool_use| D[Registre outils_disponibles]
-    D --> E[Execution reelle Python]
-    E --> C
-    C -->|stop_reason: end_turn| F[Reponse finale]
-    E -.valide par.-> G[test_agent.py]
-\`\`\`
+![Architecture du projet agent-from-scratch : flux entre l'utilisateur, la boucle agentique, l'API Claude et les outils](architecture_agent_from_scratch-1.svg)
+
 
 La boucle continue tant que le modèle demande des outils (`tool_use`), et s'arrête proprement dès qu'il a une réponse finale (`end_turn`).
 
