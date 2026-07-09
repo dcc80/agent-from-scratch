@@ -28,6 +28,17 @@ tools = [
             },
             "required": ["texte"]
         }
+    },
+    {
+        "name": "inverser_texte",
+        "description": "Inverse le texte dans un texte donné.",
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "texte": {"type": "string"}
+            },
+            "required": ["texte"]
+        }
     }
 ]
 
@@ -40,10 +51,15 @@ def executer_calculatrice(operation, a, b):
 def executer_compter_caracteres(texte):
     return len(texte)
 
+def inverser_texte(texte):
+    return texte[::-1]
+
+
 # Registre qui relie le nom d'un outil à sa vraie fonction Python
 outils_disponibles = {
     "calculatrice": executer_calculatrice,
-    "compter_caracteres": executer_compter_caracteres
+    "compter_caracteres": executer_compter_caracteres,
+    "inverser_texte": inverser_texte
 }
 
 def executer_outil(nom_outil, input_outil):
@@ -90,6 +106,7 @@ def agent_boucle(question_utilisateur, max_iterations=5):
 # Test avec une question qui nécessite les deux outils
 reponse = agent_boucle(
     "Combien font 47 multiplié par 12 ? Et combien de caractères contient le mot 'multiplication' ?"
+    "Peux-tu inverser le mot 'bonjour' pour moi?"
 )
 print("\n=== RÉPONSE FINALE ===")
 print(reponse)

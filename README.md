@@ -13,6 +13,7 @@ La boucle continue tant que le modèle demande des outils (`tool_use`), et s'arr
 
 - **calculatrice** : addition, soustraction, multiplication, division
 - **compter_caracteres** : compte les caractères d'un texte
+- **inverser_texte** : inverse l'ordre des caracteres d'un texte (ex : "bonjour" → "ruojnob")
 
 ## Installation
 
@@ -47,4 +48,6 @@ pytest test_agent.py -v
 
 ## Ce que ce projet démontre
 
-Comprendre la mécanique d'un agent (boucle Reasoning → Action → Observation, tool calling, condition d'arrêt) avant d'utiliser un framework — la brique de base de tout le reste du parcours.
+## Ce que ce projet démontre
+
+Comprendre la mécanique d'un agent (boucle Reasoning → Action → Observation, tool calling, condition d'arrêt) avant d'utiliser un framework — la brique de base de tout le reste du parcours. Le registre `outils_disponibles` permet d'ajouter facilement de nouveaux outils sans modifier la boucle elle-même, et l'agent gère nativement plusieurs appels d'outils simultanés dans une seule itération.
